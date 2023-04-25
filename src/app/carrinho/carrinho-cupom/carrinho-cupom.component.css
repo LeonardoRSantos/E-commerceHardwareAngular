@@ -1,0 +1,46 @@
+ #cupom {
+    width: 300px;
+    padding: 6px;
+    margin-right: 10px;
+  }
+  
+  button {
+    margin-left: 30px;    
+    padding: 10px 10px;
+    white-space: nowrap;    
+  }
+
+  .cupom-input {
+    width: 100px;
+  }
+
+  .cupom {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid white;
+    background-color: white;
+  }
+
+  .cupom-border {
+    margin-top: 20px;
+    padding: 20px;    
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  
+  .input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .input-group input {
+    flex: 1;
+    padding-right: 1rem; /* adiciona espaço à direita */
+  }
+  
+  .input-group button {
+    margin-left: 1rem; /* adiciona espaço à esquerda */
+  }

@@ -1,0 +1,128 @@
+<div class="container">
+
+    <div class="card">
+
+        <h1>CRIAR CONTA</h1>
+        <form [formGroup]="loginForm">
+
+            <div id="msgError"></div>
+            <div id="msgSucess"></div>
+
+            <div class="label-float">
+                <input type="text" id="nome" placeholder="" required formControlName="name">
+                <label id="labelNome" for="nome">Nome Completo*</label>
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.name">
+                    <div class="error-message"
+                        *ngIf="loginForm.get('name')?.hasError(error.type) && (loginForm.get('name')?.dirty || loginForm.get('name')?.touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+
+            <div class="label-float">
+                <input type="text" id="cpf" placeholder="" required mask="000.000.000-00" formControlName="cpf">
+                <label id="labelCPF" for="cpf">CPF*</label>
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.cpf">
+                    <div class="error-message"
+                        *ngIf="loginForm.get('cpf')?.hasError(error.type) && (loginForm.get('cpf')?.dirty || loginForm.get('cpf')?.touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+
+            <div class="label-float">
+                <input type="text" id="data-nascimento" placeholder="" required mask="00/00/0000"
+                    formControlName="dateBirth">
+                <label for="data-nascimento">Data de Nascimento*</label>
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.dateBirth">
+                    <div class="error-message"
+                        *ngIf="loginForm.get('dataNascimento')?.hasError(error.type) && (loginForm.get('dataNascimento')?.dirty || loginForm.get('dataNascimento')?.touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+
+            <div class="label-float">
+                <input type="text" id="telefone" placeholder="" required mask="(00) 00000-0000"
+                    formControlName="telefone">
+                <label id="labelTelefone" for="telefone">Telefone/Celular*</label>
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.telefone">
+                    <div class="error-message"
+                        *ngIf="loginForm.get('telefone')?.hasError(error.type) && (loginForm.get('telefone')?.dirty || loginForm.get('telefone')?.touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+
+
+            <div class="label-float">
+                <input type="text" id="usuario" placeholder="" required formControlName="email">
+                <label id="labelUsuario" for="usuario">E-mail*</label>
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.email">
+                    <div class="error-message"
+                        *ngIf="loginForm.get('email')?.hasError(error.type) && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+            <div class="label-float">
+                <input type="password" id="senha" placeholder="" required formControlName="password">
+                <label id="labelSenha" for="senha">Senha</label>
+                <i id="verSenha" class="fa fa-eye" aria-hidden="true"
+                    (click)="togglePasswordVisibility($event, 'senha')"></i>
+
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.password">
+                    <div class="error-message"
+                        *ngIf="loginForm.get('password')?.hasError(error.type) && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+
+            <div class="label-float">
+                <input type="password" id="senhaC" placeholder="" required formControlName="confirmpassword">
+                <label id="labelSenhaC" for="senhaC">Confirmar Senha</label>
+                <i id='verSenhaC' class="fa fa-eye" aria-hidden="true"
+                    (click)="togglePasswordVisibility($event, 'senhaC')"></i>
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.confirmpassword">
+                    <div class="error-message" *ngIf="loginForm.get('confirmpassword')?.hasError(error.type) &&
+                              (loginForm.get('confirmpassword')?.dirty || loginForm.get('confirmpassword')?.touched) &&
+                              !loginForm.hasError('passwordNotMatch')">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+                <div class="error-message"
+                    *ngIf="loginForm.hasError('passwordNotMatch') && (loginForm.get('confirmpassword')?.dirty || loginForm.get('confirmpassword')?.touched)">
+                    Senhas não coincidem.
+                </div>
+            </div>            
+            
+              
+              <div class="login">
+                <button [ngClass]="{'disabled': isButtonDisabled}" [disabled]="isButtonDisabled" (click)="onSubmit()">CADASTRAR</button>
+              </div>
+              <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+              <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+              
+              
+            <div class="mt-3">
+                Já possui cadastro? <a href="#">ENTRAR</a>
+            </div>
+        </form>
+    </div>
+
+</div>

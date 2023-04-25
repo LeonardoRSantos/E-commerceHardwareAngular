@@ -1,0 +1,125 @@
+product-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    
+  }
+
+  .product-border {
+    margin-top: 20px;
+    padding: 20px;    
+    border-radius: 4px;
+    background-color: #fff;
+  }
+
+  button.btn-remover {
+    margin-top: 10px;
+    font-size: 15px;
+    font-size: 1.0em;
+    border: none;
+  }
+  
+  
+  .product-item img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+  }
+  
+  .product-description {
+    flex-grow: 1;
+  }
+  
+  .product-description h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .product-description p {
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .quantity-controls .quantity-button {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    color: #212529;
+    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  
+  .quantity-controls input {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    color: #212529;
+    font-size: 14px;
+    width: 50px;
+    height: 30px;
+    text-align: center;
+  }
+  
+  .valor-vista-pix {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .btn-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #333;
+    font-size: 12px;
+    line-height: 1;
+    transition: all 0.2s ease-in-out;
+    
+  }
+  
+  .btn-arrow:hover {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .input-quantidade {
+    width: 40px;
+    text-align: center;
+  }
+  
+
+  .input-quantidade::-webkit-inner-spin-button,
+.input-quantidade::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.separadorendereco{
+  height: 40px;
+}
+
+.descricao{
+  width: 18%;
+}
+
+.quant-div {
+  width: auto;
+}
+
+
+
+
+  
