@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { CarrinhoService } from 'src/app/carrinho.service';
+import { CarrinhoService } from 'src/app/services/carrinho.service';
 import { IProduto, IProdutoCarrinho } from 'src/app/produtos';
 
 

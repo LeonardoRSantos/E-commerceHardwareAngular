@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from '../user.service';
-import { HttpErrorResponse } from '@angular/common/http';
+import { UserService } from '../services/user.service';
 
 
 
@@ -86,7 +85,7 @@ export class CadastroUsuarioComponent implements OnInit {
       validators: this.password.bind(this)
     });
   }
-
+  
   password(formGroup: FormGroup) {
     const passwordControl = formGroup.get('password');
     const confirmPasswordControl = formGroup.get('confirmpassword');

@@ -1,1 +1,36 @@
-<p>login works!</p>
+<form>
+  <div class="container">
+    <div class="card">
+      <span class="error animated tada" id="msg"></span>
+      <form name="form1" class="box" onsubmit="return checkStuff()">
+        <h4>Faça login em sua conta</h4>
+        <input
+          type="text"
+          name="email"
+          placeholder="Email"
+          autocomplete="off"
+          class="form-control"
+          [(ngModel)]="email"
+        />
+        <i class="typcn typcn-eye" id="eye"></i>
+        <input
+          type="password"
+          name="password"
+          placeholder="Passsword"
+          id="pwd"
+          autocomplete="off"
+          class="form-control" 
+          [(ngModel)]="password"
+        />
+        <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+        <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+
+        <input type="submit" value="Sign in" class="btn1" (click)="onSubmit()"/>
+      </form>
+      <a routerLink="/cadastro-usuario" class="dnthave"
+        >Não tem uma conta? Inscrever-se!</a
+      >
+    </div>
+    <div class="footer"></div>
+  </div>
+</form>

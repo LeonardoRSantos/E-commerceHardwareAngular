@@ -1,4 +1,4 @@
-<header class="main-header header-border full-width-header">
+<!-- <header class="main-header header-border full-width-header">
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 col-md-4">
@@ -32,6 +32,50 @@
         </div>
       </div>
     </div>    
-  </header>
+  </header> -->
+
+  <header class="col-12">
+    <div class="row container header-content">       
+        <!-- Logo Section -->
+        <div class="col-3 logo-section">            
+            <div class="logo-kbm">
+                <img src="./assets/logonewvision.jpg"
+                    alt="Logo NewVision!" title="NewVision! Tecnologia e Games" routerLink="/produtos">               
+            </div>
+        </div>
+        <!-- Buscar -->
+        <div class="col-5">
+            <app-barra-pesquisa></app-barra-pesquisa>
+        </div>
+        <!-- Login Section -->
+        <div class="col-2 login-section">
+            <div class="login-logo-profile">
+                <span  class="material-icons">
+                    account_circle
+                </span>
+               
+            </div>
+            <div class="login-logo-group">
+                <div >
+                    <span>Faça <strong><a routerLink="login">Login</a></strong> ou</span>
+                    <br />
+                    <span>crie seu <strong><a routerLink="cadastro-usuario">Cadastro</a></strong></span>
+                </div>               
+            </div>
+        </div>
+        <!-- Last Logo Group-->
+        <div class="col-2 last-logo-group">
+          <a routerLink="contato">
+                <span class="material-icons">support_agent</span>
+            </a>            
+            
+            <a routerLink="carrinho">
+              <i class="fa-solid fa-cart-shopping"></i>              
+               
+               <span class="badge-carrinho">{{carrinhoService.obtemCarrinho().length}}</span>
+            </a>
+        </div>
+    </div>    
+</header>
   
 

@@ -1,6 +1,6 @@
 import { Component, OnInit,HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-import { CarrinhoService } from '../carrinho.service';
+import { CarrinhoService } from '../services/carrinho.service';
 import { IProdutoCarrinho } from '../produtos';
 
 @Component({

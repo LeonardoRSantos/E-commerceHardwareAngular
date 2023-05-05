@@ -1,4 +1,4 @@
-.main-header {    
+/* .main-header {    
     padding: 10px 0px;
     display: flex;
     flex-wrap: wrap;
@@ -88,4 +88,125 @@
       margin-right: 10px;
       margin-bottom: -120px;
     }
+  } */
+
+/* Header */
+
+header {
+  width: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  background-color: #000;
+}
+
+.header-content {
+  margin: auto;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1325px;
   }
+}
+
+.btn-menu,
+.login-section,
+.logo-profile,
+.last-logo-group,
+.logo-kbm,
+.nav-list ul,
+.logo-section {
+  display: flex;
+}
+
+.btn-menu,
+.logo-profile,
+.nav-list ul {
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo Section */
+.logo-section {
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.logo-section-btn-menu span {
+  color: #fff;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.logo-kbm {
+  width: 35%;
+  height: 90px;
+}
+
+.logo-kbm img {
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Login Section */
+.login-section {
+  width: 14%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.login-logo-profile {
+  width: 40px;
+  font-size: 33px;
+  color: #c4c4c4;
+}
+
+.login-logo-profile img {
+  width: 100%;
+  border-radius: 100%;
+  border: 3px solid #347bbe;
+}
+
+.login-logo-group {
+  font-size: 13px;
+}
+
+.login-logo-group span,
+a {
+  color: #ccdfef;
+}
+
+/* Last Logo Group */
+.last-logo-group {
+  font-size: 20px;
+  align-items: center;
+  gap: 1.8em;
+}
+
+/* Nav List */
+.nav-list {
+  background-color: #ff6500;
+  padding: 0;
+  overflow: hidden;
+}
+
+.nav-list ul {
+  margin: auto;
+}
+
+.nav-list ul li {
+  margin: 0 55px;
+  padding: 7px 0;
+}
+
+.nav-list ul li a {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  text-align: center;
+}

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpErrorResponse  } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { throwError,Observable } from 'rxjs';
+
 
 
 @Injectable({
@@ -9,7 +10,8 @@ import { throwError } from 'rxjs';
 })
 export class UserService {
 
-  private apiUrl = 'http://localhost:8080/api/v1/auth';
+  // private apiUrl = 'http://localhost:8080/api/v1/auth';
+  private apiUrl = 'https://new-vision-ecommercejava.herokuapp.com/api/v1/auth';
 
   constructor(private http: HttpClient) {}
 
@@ -22,13 +24,18 @@ export class UserService {
     );
   }
 
-  authenticate(login: string, password: string) {
+  authenticate(email: string, password: string) {
     const body = {
-      login: login,
+      email: email,
       password: password
     };
-    return this.http.post(`${this.apiUrl}/authenticate`, body);
-  }
+    return this.http.post(`${this.apiUrl}/authenticate`, body).pipe(
+      catchError((error: HttpErrorResponse) => {
+        return this.handleHttpError(error);
+      })
+    );
+  } 
+  
 
   private handleHttpError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -43,3 +50,5 @@ export class UserService {
     }
   }
 }
+
+

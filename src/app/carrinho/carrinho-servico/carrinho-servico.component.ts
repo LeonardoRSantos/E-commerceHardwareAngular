@@ -1,98 +1,75 @@
-  import { Component, OnInit, Input } from '@angular/core';
-  import { CarrinhoService } from 'src/app/carrinho.service';
-  import { IProdutoCarrinho } from 'src/app/produtos';
+import { Component, Input, OnInit } from '@angular/core';
+import { CarrinhoService } from 'src/app/services/carrinho.service';
+import { IProdutoCarrinho } from 'src/app/produtos';
 
-  @Component({
-    selector: 'app-carrinho-servico',
-    templateUrl: './carrinho-servico.component.html',
-    styleUrls: ['./carrinho-servico.component.css']
-  })
+@Component({
+  selector: 'app-carrinho-servico',
+  templateUrl: './carrinho-servico.component.html',
+  styleUrls: ['./carrinho-servico.component.css'],
+})
+export class CarrinhoServicoComponent implements OnInit {
+  @Input() produto: IProdutoCarrinho;
 
+  // aqui seria bom criar uma interface para representar a garantia
+  garantias = [
+    { nome: 'Sem garantia', descricao: 'Sem garantia', meses: null },
+    { nome: '+12 meses', descricao: '+12 meses', tempo: 12 },
+    { nome: '+24 meses', descricao: '+24 meses', tempo: 24 },
+    { nome: '+36 meses', descricao: '+36 meses', tempo: 36 },
+  ];
 
-  export class CarrinhoServicoComponent implements OnInit {
-    itensCarrinho: IProdutoCarrinho[] = [];
+  // e aqui pode ser outra interface para representar a garantia com o valor calculado
+  garantiasPorProduto: { nome: string; descricao: string; valor: number }[] =
+    [];
 
-    valorGarantia12: number = 0;
-    valorGarantia24: number = 0;
-    valorGarantia36: number = 0;   
-    valorGarantia: number = 0;   
-    valorGarantiaSelecionada: number = 0;
-    @Input() produto: IProdutoCarrinho;    
-    //@Input() garantiaSelecionada: string = '';
-
-    constructor(
-      public carrinhoService: CarrinhoService,
-    ) { this.produto = {} as IProdutoCarrinho;}
-
-    ngOnInit(): void {
-      this.itensCarrinho = this.carrinhoService.obtemCarrinho();
-      this.calcularGarantias();
-      this.produto.garantiaSelecionada = "sem garantia";      
-    }
-
-    
+  valorGarantia = 0;
+ 
   
 
+  constructor(public carrinhoService: CarrinhoService) {
+    this.produto = {} as IProdutoCarrinho;
+  }
 
-    calcularGarantias() {
-      for (let item of this.itensCarrinho) {
-        this.valorGarantia12 += this.carrinhoService.calcularGarantia(item.preco, 12);
-        this.valorGarantia24 += this.carrinhoService.calcularGarantia(item.preco, 24);
-        this.valorGarantia36 += this.carrinhoService.calcularGarantia(item.preco, 36);
-      }      
-    }  
+  ngOnInit(): void {
+    this.calcularGarantias();
+    this.produto.garantiaSelecionada = 'Sem garantia';    
+  }
 
-    atualizarGarantia(event: any) {
-      this.produto.garantiaSelecionada = event.target.value;
-    
-      // Atualiza o valor da garantia selecionada
-      if (this.produto.garantiaSelecionada === '0') {
-        this.valorGarantia = 0;
-      } else if (this.produto.garantiaSelecionada === '+12 meses') {
-        this.valorGarantia = this.valorGarantia12;
-      } else if (this.produto.garantiaSelecionada === '+24 meses') {
-        this.valorGarantia = this.valorGarantia24;
-      } else if (this.produto.garantiaSelecionada === '+36 meses') {
-        this.valorGarantia = this.valorGarantia36;
-      }
+  calcularGarantias() {
+    for (let garantia of this.garantias) {
+      this.garantiasPorProduto.push({
+        nome: garantia.nome,
+        descricao: garantia.descricao,
+        valor: this.carrinhoService.calcularGarantia(
+          this.produto.preco,
+          garantia.tempo ?? 0          
+        ),        
+      });      
     }
-
-    // atualizarGarantia(event: any, produtoId: number) {
-    //   const garantiaSelecionada = event.target.value;
-      
-    //   // Atualize o valor da garantia selecionada para o produto correspondente
-    //   if (garantiaSelecionada === '0') {
-    //     this.valoresGarantia[produtoId] = 0;
-    //   } else if (garantiaSelecionada === '+12 meses') {
-    //     this.valoresGarantia[produtoId] = this.valorGarantia12;
-    //   } else if (garantiaSelecionada === '+24 meses') {
-    //     this.valoresGarantia[produtoId] = this.valorGarantia24;
-    //   } else if (garantiaSelecionada === '+36 meses') {
-    //     this.valoresGarantia[produtoId] = this.valorGarantia36;
-    //   }
-    // }
-
-    // atualizarGarantia(event: any, produtoId: number) {
-    //   const garantiaSelecionada = event.target.value;
-      
-    //   // Atualize o valor da garantia selecionada para o produto correspondente
-    //   if (garantiaSelecionada === '0') {
-    //     this.valoresGarantia[produtoId] = 0;
-    //   } else if (garantiaSelecionada === '+12 meses') {
-    //     this.valoresGarantia[produtoId] = this.valorGarantia12;
-    //   } else if (garantiaSelecionada === '+24 meses') {
-    //     this.valoresGarantia[produtoId] = this.valorGarantia24;
-    //   } else if (garantiaSelecionada === '+36 meses') {
-    //     this.valoresGarantia[produtoId] = this.valorGarantia36;
-    //   }
     
-    //   // atualize a propriedade valorGarantiaSelecionada
-    //   this.valorGarantiaSelecionada = this.valoresGarantia[produtoId];
-    // }
   }
 
 
 
+  
+
+  atualizarGarantia(garantia: any) {
+    if (this.produto.garantiaSelecionada === 'SEM_GARANTIA') {
+      this.valorGarantia = 0;
+    } else if (this.produto.garantiaSelecionada === '+12 meses') {
+      this.valorGarantia = garantia.valor;
+    } else if (this.produto.garantiaSelecionada === '+24 meses') {
+      this.valorGarantia = garantia.valor;
+    } else if (this.produto.garantiaSelecionada === '+36 meses') {
+      this.valorGarantia = garantia.valor;
+    } else {
+      this.valorGarantia = 0; // fallback para outras opções de garantia
+    }
+  }
+}
+
+  
+ 
 
 
 

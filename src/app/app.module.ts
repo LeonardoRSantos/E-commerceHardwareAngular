@@ -15,7 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { UserService } from './user.service';
+import { UserService } from './services/user.service';
 
 
 

@@ -1,4 +1,14 @@
-<form class="search-form" (ngSubmit)="pesquisar()">
-    <input type="text" name="descricao" [(ngModel)]="descricao">
-    <button><i class="fa-solid fa-magnifying-glass"></i></button>
-</form>
+<form class="buscar" (ngSubmit)="pesquisar()">
+    <input
+      type="text"
+      name="descricao"
+      placeholder="Busque aqui"
+      onfocus="if(this.placeholder=='Busque aqui') this.placeholder = ''"
+      onblur="if(this.placeholder=='') this.placeholder='Busque aqui'"
+      [(ngModel)]="descricao"
+    />
+    <div class="col-3">
+        <button onclick="pesquisar()"><img class="logo" src="./assets/logobuscar.jpg"></button>
+    </div>
+  </form>
+  

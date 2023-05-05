@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CarrinhoService } from 'src/app/carrinho.service';
+import { CarrinhoService } from 'src/app/services/carrinho.service';
 import { IProdutoCarrinho } from 'src/app/produtos';
 
 @Component({
@@ -11,6 +11,7 @@ import { IProdutoCarrinho } from 'src/app/produtos';
 export class CarrinhoTotalComponent implements OnInit{
   itensCarrinho: IProdutoCarrinho[] = [];
   taxaFrete: number = 0;
+  garantiaSelecionada: number = 0;
 
   constructor(
     public carrinhoService: CarrinhoService,
@@ -30,6 +31,10 @@ export class CarrinhoTotalComponent implements OnInit{
 
   continuarComprando(){
     this.router.navigate(["produtos"]);
+  }
+
+  atualizarGarantiaSelecionada(valor: number) {
+    this.garantiaSelecionada = valor;
   }
   
 

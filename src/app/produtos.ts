@@ -4,23 +4,14 @@ export interface IProduto {
     preco: number;
     descricaoPreco: string;
     quantidadeEstoque: number;
-    imagem: string;
-    garantias?: Garantia[];
-    garantiaSelecionada?: string;
-    valorGarantia?: number;
+    imagem: string;    
+    
 }
 
 export interface IProdutoCarrinho extends IProduto{
     quantidade: number;
-    garantiaSelecionada?: string;
-    valorGarantia?: number; 
+    garantiaSelecionada?: string;    
 }
-
-interface Garantia {
-    tipo: string;
-    preco: number;
-}
-
 
 
 

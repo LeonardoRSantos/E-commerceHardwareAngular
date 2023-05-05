@@ -1,6 +1,6 @@
 import {Input} from '@angular/core';
 import { Injectable } from '@angular/core';
-import { IProdutoCarrinho } from './produtos';
+import { IProdutoCarrinho } from '../produtos';
 
 @Injectable({
   providedIn: 'root'

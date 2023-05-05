@@ -1,25 +1,41 @@
-.search-form{
-    height: 44px;
-    display: flex;
+.buscar {
+  display: flex;
 }
 
-.search-form input{
-    box-sizing: border-box;
-    height: 56px;
-    padding: 28px;
-    flex:1;
-    background-color: var(--light-gray);
-    color: var(--gray);
-    border: none;
-    transition: all -3s ease-in-out;
-    font-size: 22px;
+.buscar {
+  align-items: center;
+  justify-content: center;
 }
 
-.search-form button{
-    width: 56px;
-    height: 56px;
-    background-color: var(--blue);
-    border:none;
-    color: #fff;
-    font-size: 22px;
+.buscar {
+  padding: 30px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.buscar input {
+  border: transparent;
+  width: 100%;
+  padding: 8px 18px;
+  border-radius: 5px;
+  outline: 0;
+}
+
+button {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  left: 0;
+}
+
+.logo {
+  width: 30%;
+  height: auto;
+}
+
+.buscar .logo {
+  width: 30%;
+  height: auto;
+  margin-right: 100px;
 }

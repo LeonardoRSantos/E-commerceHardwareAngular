@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CarrinhoService } from 'src/app/carrinho.service';
-import { NotificacaoService } from 'src/app/notificacao.service';
+import { CarrinhoService } from 'src/app/services/carrinho.service';
+import { NotificacaoService } from 'src/app/services/notificacao.service';
 import { IProduto, IProdutoCarrinho } from 'src/app/produtos';
-import { ProdutosService } from 'src/app/produtos.service';
+import { ProdutosService } from 'src/app/services/produtos.service';
 
 @Component({
   selector: 'app-detalhes-produto',
