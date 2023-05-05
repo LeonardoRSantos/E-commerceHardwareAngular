@@ -10,8 +10,8 @@ import { throwError,Observable } from 'rxjs';
 })
 export class UserService {
 
-  // private apiUrl = 'http://localhost:8080/api/v1/auth';
-  private apiUrl = 'https://new-vision-ecommercejava.herokuapp.com/api/v1/auth';
+  private apiUrl = 'http://localhost:8080/api/v1/auth';
+  // private apiUrl = 'https://new-vision-ecommercejava.herokuapp.com/api/v1/auth';
 
   constructor(private http: HttpClient) {}
 
